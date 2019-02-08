@@ -10,5 +10,5 @@
 
     <item android:title="Feed"
         android:icon="@mipmap/ic_launcher"
-        android:id="@+id/menubar_laucher"/>
+        android:id="@+id/menubar_feed"/>
 </menu>
