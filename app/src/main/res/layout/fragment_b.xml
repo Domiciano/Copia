@@ -5,11 +5,39 @@
     android:layout_height="match_parent"
     tools:context=".FragmentB">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="B"
-        android:textSize="50sp"/>
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:id="@+id/et_libreta_nombre"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numero"
+            android:inputType="phone"
+            android:id="@+id/et_libreta_numero"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar"
+            android:id="@+id/btn_libreta_agregar"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/libreta">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
 
 </FrameLayout>
