@@ -17,6 +17,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -24,6 +25,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int REQUEST_CODE = 11 ;
     private GoogleMap mMap;
     private LocationManager manager;
+    private Marker me;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onLocationChanged(Location location) {
                 Log.e(">>>","LAT: "+location.getLatitude()+ " , LONG: "+location.getLongitude());
+
+                if(me != null){
+                    me.remove();
+                }
+                me = mMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(location.getLatitude(), location.getLongitude()))
+                        .title("Me")
+                );
+                mMap.moveCamera(CameraUpdateFactory
+                        .newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 10));
+
             }
 
             @Override
